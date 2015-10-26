@@ -58,6 +58,11 @@ namespace Atlassian.Stash.Api.Workers
 
                 string json = await httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
 
+                if (httpResponse.StatusCode != HttpStatusCode.Created && httpResponse.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception(string.Format("GET operation unsuccessful. Got HTTP status code '{0}'", httpResponse.StatusCode));
+                }
+
                 T response = JsonConvert.DeserializeObject<T>(json);
 
                 return response;

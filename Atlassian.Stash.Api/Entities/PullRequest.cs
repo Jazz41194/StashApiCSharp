@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Atlassian.Stash.Api.Enums;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Atlassian.Stash.Api.Entities
 {
@@ -17,7 +19,8 @@ namespace Atlassian.Stash.Api.Entities
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("state")]
-        public string State { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PullRequestState State { get; set; }
         [JsonProperty("open")]
         public bool Open { get; set; }
         [JsonProperty("closed")]

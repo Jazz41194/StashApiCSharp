@@ -37,6 +37,12 @@ namespace Atlassian.Stash.Api.Helpers
                     partialUrl += string.Format("at={0}", requestOptions.At);
                 }
 
+                if (requestOptions.State.HasValue)
+                {
+                    partialUrl += string.IsNullOrWhiteSpace(partialUrl) && !urlHasQueryParams ? "?" : "&";
+                    partialUrl += string.Format("state={0}", requestOptions.State);
+                }
+
                 resultingUrl += partialUrl;
             }
 
