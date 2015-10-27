@@ -1,5 +1,6 @@
 ﻿
 using Atlassian.Stash.Api.Enums;
+using Atlassian.Stash.Api.Enums.PullRequest;
 
 namespace Atlassian.Stash.Api.Helpers
 {

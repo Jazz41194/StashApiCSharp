@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Atlassian.Stash.Api.Enums;
+using Atlassian.Stash.Api.Enums.PullRequest;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
