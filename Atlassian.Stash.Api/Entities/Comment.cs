@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Atlassian.Stash.Api.Converters;
 using Newtonsoft.Json;
 
 namespace Atlassian.Stash.Api.Entities
@@ -18,9 +19,11 @@ namespace Atlassian.Stash.Api.Entities
         [JsonProperty("text")]
         public string Text { get; set; }
         [JsonProperty("createdDate")]
-        public string CreatedDate { get; set; }
+        [JsonConverter(typeof(TimestampConverter))]
+        public DateTime CreatedDate { get; set; }
         [JsonProperty("updatedDate")]
-        public string UpdatedDate { get; set; }
+        [JsonConverter(typeof(TimestampConverter))]
+        public DateTime UpdatedDate { get; set; }
         [JsonProperty("version")]
         public string Version { get; set; }
     }
