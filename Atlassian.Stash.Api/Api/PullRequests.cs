@@ -22,8 +22,7 @@ namespace Atlassian.Stash.Api.Api
             _httpWorker = httpWorker;
         }
 
-        public async Task<PullRequest> Create(string projectKey, string repositorySlug,
-            PullRequest pullRequest)
+        public async Task<PullRequest> Create(string projectKey, string repositorySlug, PullRequest pullRequest)
         {
             if (pullRequest.State == PullRequestState.All)
             {
