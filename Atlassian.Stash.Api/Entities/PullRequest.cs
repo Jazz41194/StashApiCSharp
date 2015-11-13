@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Atlassian.Stash.Api.Converters;
 using Atlassian.Stash.Api.Enums;
 using Atlassian.Stash.Api.Enums.PullRequest;
 using Newtonsoft.Json;
@@ -26,8 +27,10 @@ namespace Atlassian.Stash.Api.Entities
         public bool Open { get; set; }
         [JsonProperty("closed")]
         public bool Closed { get; set; }
-        public string CreatedDate { get; set; }
-        public string UpdatedDate { get; set; }
+        [JsonConverter(typeof(TimestampConverter))]
+        public DateTime CreatedDate { get; set; }
+        [JsonConverter(typeof(TimestampConverter))]
+        public DateTime UpdatedDate { get; set; }
         [JsonProperty("fromRef")]
         public Ref FromRef { get; set; }
         [JsonProperty("toRef")]
